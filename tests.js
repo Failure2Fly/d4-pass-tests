@@ -11,12 +11,15 @@ avow('isTrue returns true', isTrue(1 + 1 === 2) === true);
 
 // Null & Undefined
 function isNull(value) {
+    var emptyGlass = null;
+    return emptyGlass;
 }
 
 var emptyGlass = null;
 avow('isNull returns true', isNull(emptyGlass) === true);
 
 function isUndefined() {
+    var blockOfClay;
     return blockOfClay;
 }
 

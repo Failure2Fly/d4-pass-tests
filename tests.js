@@ -11,16 +11,22 @@ avow('isTrue returns true', isTrue(1 + 1 === 2) === true);
 
 // Null & Undefined
 function isNull(value) {
-    var emptyGlass = null;
-    return emptyGlass;
+    if (value === null) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 var emptyGlass = null;
 avow('isNull returns true', isNull(emptyGlass) === true);
 
-function isUndefined() {
-    var blockOfClay;
-    return blockOfClay;
+function isUndefined(value) {
+    if (value === undefined) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 var blockOfClay;
@@ -86,17 +92,19 @@ avow('doesItContain returns true if it finds a match', doesItContain('The Childr
 // Regular Expressions
 function extractZipCode() {
     var extractZipCode = 'My zip code was 46240.';
-    var zipCode = extractZipCode.match(/\d/g);
+    var zipCode = extractZipCode.match(/\d/g).join('');
     return zipCode;
 }
+
 
 avow('extractZipCode returns a zip code', extractZipCode('My zip code was 46240.') === '46240');
 
 function extractPhoneNumber() {
     var phoneNumber = '(888) 123.1234';
-    var isCorrectPhoneNumber = phoneNumber.match(/\d/g).length===10;
-    Number(isCorrectPhoneNumber);
+    var isCorrectPhoneNumber = phoneNumber.match(/\d/g).join('');
+    return(isCorrectPhoneNumber);
 }
+
 
 avow('extractPhoneNumber returns a string of numbers', extractPhoneNumber('(888) 123.1234') === '8881231234');
 
@@ -149,7 +157,9 @@ function justAMoment() {
 avow('justAMoment returns true if the function returns a day name', justAMoment().includes('day') === true);
 
 // Objects
-function myNameIs() {
+function myNameIs(anObject) {
+    var myNameIs = {name:'Your Name Here'}
+    return anObject.name;
 }
 
 avow('myNameIs returns your name from an object with a name property', myNameIs({name:'Your Name Here'}) === 'Your Name Here');

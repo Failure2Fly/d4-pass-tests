@@ -47,36 +47,37 @@ function convertCaseUpper(iAmShouting) {
 
 avow('convertCaseUpper returns an uppercase string', convertCaseUpper('i am shouting!') === 'I AM SHOUTING!');
 
-function repeatWord(repeatWord) {
-    repeatWord = repeatWord.repeat(2);
+function repeatWord(repeatWord, numberOfTimes) {
+    repeatWord = repeatWord.repeat(numberOfTimes);
     return repeatWord;
 }
 
 avow('repeatWord returns a repeated word', repeatWord('Knock.', 2) === 'Knock.Knock.');
 
-function sliceWord(sliceWord) {
-    sliceWord = sliceWord.slice(7, 12);
+
+function sliceWord(sliceWord, start, end) {
+    sliceWord = sliceWord.slice(start, end);
     return sliceWord;
 }
 
 avow('sliceWord returns a slice of a word', sliceWord('I love pizza!', 7, 12) === 'pizza');
 
-function splitWord(splitWord) {
-    var splits = splitWord.split(',');
+function splitWord(splitWord, seperator) {
+    var splits = splitWord.split(seperator);
     return splits;
 } 
 
 avow('splitWord returns an array', splitWord('US,CA,MX,JP,UK', ',').length === 5);
 
-function whereIsCarmen(myString) {
-    var Carmen = myString.indexOf('Carmen');
+function whereIsCarmen(myString, word) {
+    var Carmen = myString.indexOf(word);
     return Carmen;
 }
 
 avow('whereIsCarmen returns Carmen\'s position', whereIsCarmen('In the rainy Panama Canal, Carmen Sandiego silently slipped aboard a rusty shipping container bound for New Zealand.', 'Carmen') === 27);
 
-function doesItContain(myString) {
-    var museum = myString.includes('Museum');
+function doesItContain(myString, contains) {
+    var museum = myString.includes(contains);
     return museum;
 }
 
@@ -108,33 +109,33 @@ function stringToNumber(string) {
 
 avow('stringToNumber returns a proper Number', stringToNumber('1999') === 1999);
 
-function incrementByOne() {
-    var n = 0;
+function incrementByOne(n) {
+    // var n = 0;
     n++;
     return n;
 }
 
 avow('incrementByOne returns a number one higher', incrementByOne(0) === 1);
 
-function isDivisibleByThree() { 
-    isDivisibleByThree = true;
-        if (9 % 3 === 0);
-        return isDivisibleByThree;  
+function isDivisibleByThree(number) { 
+    // isDivisibleByThree = true;
+        return (number % 3 === 0);
+        // return isDivisibleByThree;  
 }
 
 avow('isDivisibleByThree returns true if number is divisible by 3', isDivisibleByThree(9) === true);
 
-function makeRandomNumber(makeRandomNumber) {
+function makeRandomNumber(number) {
     // var makeRandomNumber = 
-    Math.random() * 10;
-    return makeRandomNumber;
+    return Math.round(Math.random()*number);
+    // return makeRandomNumber;
 }
 
 avow('makeRandomNumber returns a random number between 0 and 10', makeRandomNumber(10) >= 0 && makeRandomNumber(10) <= 10);
 
 function roundNumber(number) { 
-    var roundNumber = Math.round(number); 
-    return roundNumber;
+   return Math.round(number); 
+    // return roundNumber;
 }
 
 avow('roundNumber returns a number rounded up', roundNumber(5.51) === 6);
@@ -156,8 +157,8 @@ function myNameIs(anObject) {
 avow('myNameIs returns your name from an object with a name property', myNameIs({name:'Your Name Here'}) === 'Your Name Here');
 
 // Arrays
-function getFirstItem() {
-    return ['Dog','Cat','Pig','Bird','Fish'][0];
+function getFirstItem(array) {
+    return array[0];
 }
 
 avow('getFirstItem returns the first item in the array', getFirstItem(['Dog','Cat','Pig','Bird','Fish']) === 'Dog');

@@ -2,8 +2,8 @@ var avow = require('avow');
 var moment = require('moment');
 
 // Booleans
-function isTrue() {
-    var value = 1 + 1 === 2;
+function isTrue(value) {
+    // var value = 1 + 1 === 2;
     return value;
 }
 
@@ -33,56 +33,49 @@ var blockOfClay;
 avow('isUndefined returns true', isUndefined(blockOfClay) === true);
 
 // Strings
-function convertCaseLower() {
-    var iAmWhispering = 'I AM WHISPERING.';
+function convertCaseLower(iAmWhispering) {
     iAmWhispering = iAmWhispering.toLowerCase();
     return iAmWhispering;
 }
 
 avow('convertCaseLower returns a lowercase string', convertCaseLower('I AM WHISPERING.') === 'i am whispering.');
 
-function convertCaseUpper() {
-    var iAmShouting = 'i am shouting!';
+function convertCaseUpper(iAmShouting) {
     iAmShouting= iAmShouting.toUpperCase();
     return iAmShouting;
 }
 
 avow('convertCaseUpper returns an uppercase string', convertCaseUpper('i am shouting!') === 'I AM SHOUTING!');
 
-function repeatWord() {
-    var repeatWord = 'Knock.';
+function repeatWord(repeatWord) {
     repeatWord = repeatWord.repeat(2);
     return repeatWord;
 }
 
 avow('repeatWord returns a repeated word', repeatWord('Knock.', 2) === 'Knock.Knock.');
 
-function sliceWord() {
-    var sliceWord = 'I love pizza!';
+function sliceWord(sliceWord) {
     sliceWord = sliceWord.slice(7, 12);
     return sliceWord;
 }
 
 avow('sliceWord returns a slice of a word', sliceWord('I love pizza!', 7, 12) === 'pizza');
 
-function splitWord() {
-    var myString = 'US,CA,MX,JP,UK';
-    var splits = myString.split(',');
+function splitWord(splitWord) {
+    var splits = splitWord.split(',');
     return splits;
 } 
 
 avow('splitWord returns an array', splitWord('US,CA,MX,JP,UK', ',').length === 5);
 
-function whereIsCarmen() {
-    var myString = 'In the rainy Panama Canal, Carmen Sandiego silently slipped aboard a rusty shipping container bound for New Zealand.';
+function whereIsCarmen(myString) {
     var Carmen = myString.indexOf('Carmen');
     return Carmen;
 }
 
 avow('whereIsCarmen returns Carmen\'s position', whereIsCarmen('In the rainy Panama Canal, Carmen Sandiego silently slipped aboard a rusty shipping container bound for New Zealand.', 'Carmen') === 27);
 
-function doesItContain() {
-    var myString = 'The Children\'s Museum Of Indianapolis';
+function doesItContain(myString) {
     var museum = myString.includes('Museum');
     return museum;
 }
@@ -90,8 +83,7 @@ function doesItContain() {
 avow('doesItContain returns true if it finds a match', doesItContain('The Children\'s Museum Of Indianapolis', 'Museum') === true);
 
 // Regular Expressions
-function extractZipCode() {
-    var extractZipCode = 'My zip code was 46240.';
+function extractZipCode(extractZipCode) {
     var zipCode = extractZipCode.match(/\d/g).join('');
     return zipCode;
 }
@@ -99,8 +91,7 @@ function extractZipCode() {
 
 avow('extractZipCode returns a zip code', extractZipCode('My zip code was 46240.') === '46240');
 
-function extractPhoneNumber() {
-    var phoneNumber = '(888) 123.1234';
+function extractPhoneNumber(phoneNumber) {
     var isCorrectPhoneNumber = phoneNumber.match(/\d/g).join('');
     return(isCorrectPhoneNumber);
 }
@@ -109,8 +100,8 @@ function extractPhoneNumber() {
 avow('extractPhoneNumber returns a string of numbers', extractPhoneNumber('(888) 123.1234') === '8881231234');
 
 // Numbers
-function stringToNumber() {
-    var string ='1999';
+function stringToNumber(string) {
+    // var string ='1999';
     var n = Number(string);
     return n;
 }
@@ -133,15 +124,16 @@ function isDivisibleByThree() {
 
 avow('isDivisibleByThree returns true if number is divisible by 3', isDivisibleByThree(9) === true);
 
-function makeRandomNumber() {
-    var makeRandomNumber = Math.random() * 10;
+function makeRandomNumber(makeRandomNumber) {
+    // var makeRandomNumber = 
+    Math.random() * 10;
     return makeRandomNumber;
 }
 
 avow('makeRandomNumber returns a random number between 0 and 10', makeRandomNumber(10) >= 0 && makeRandomNumber(10) <= 10);
 
-function roundNumber() { 
-    var roundNumber = Math.round(5.51); 
+function roundNumber(number) { 
+    var roundNumber = Math.round(number); 
     return roundNumber;
 }
 
@@ -158,7 +150,6 @@ avow('justAMoment returns true if the function returns a day name', justAMoment(
 
 // Objects
 function myNameIs(anObject) {
-    var myNameIs = {name:'Your Name Here'}
     return anObject.name;
 }
 
